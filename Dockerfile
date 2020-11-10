@@ -1,8 +1,7 @@
 FROM scratch
 ADD alpine-minirootfs-3.12.1-x86_64.tar.gz /
-CMD ["/bin/sh"]
-LABEL maintainer="PwChO <email@domena>"
-LABEL description="Przykladowy Dockerfile dla serwera Apache & PHP."
+LABEL maintainer="Aldzi <email@domena>"
+LABEL description="Dockerfile Apacz i PHP"
 ENV PHPVERSION=7
 RUN apk add --update apache2 php${PHPVERSION}-apache2 php${PHPVERSION} && \
 rm -rf /var/cache/apk/* && \
