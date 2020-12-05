@@ -17,8 +17,7 @@ services:
    ports:
     - "3306:3306"
  javapp:
-  build:
-   context: ./
+  image: stirio/chmurki
   restart: on-failure
   container_name: japp
   depends_on:

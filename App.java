@@ -16,23 +16,20 @@ public class App {
         Connection conn = null;
         
         try{
-           // Class.forName(JDBC_DRIVER);
+            Class.forName(JDBC_DRIVER);
             while (conn == null)
             {
                 try{
                     System.out.println("Proba polaczenia");
-                    
                     conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                } catch (SQLException e){
+                }catch (SQLException e){
                     System.out.println("Blad polaczenia\n");
                     System.out.println(e);
                 }
 
                 try{
                     Thread.sleep(10000);
-                } catch(Exception e){
-
-                }
+                } catch(Exception e){}
             }
 
             if(conn != null)
