@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+ Cloud2020-88680:
+   image: mysql:5
+   environment:
+    MYSQL_ROOT_USER: ADz
+    MYSQL_ROOT_PASSWORD: Chmura
+    MYSQL_USER: ADz
+    MYSQL_PASSWORD: Chmura
+    MYSQL_DATABASE: Chmury
+   container_name: db
+   ports:
+    - 3306:3306
+   networks:
+    Bridge-Zadanie-1:
+     ipv4_address: 10.0.10.3
+   ports:
+    - "3306:3306"
+ javapp:
+  build:
+   context: ./
+  restart: on-failure
+  container_name: japp
+  depends_on:
+   - Cloud2020-88680
+  networks:
+   - Bridge-Zadanie-1
+  stdin_open: true
+  tty: true
+
+networks:
+ Bridge-Zadanie-1:
+  driver: bridge
+  ipam:
+   config:
+    - subnet: 10.0.10.0/24
