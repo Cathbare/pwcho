@@ -16,7 +16,7 @@ public class App {
         Connection conn = null;
         
         try{
-            Class.forName(JDBC_DRIVER);
+          //  Class.forName(JDBC_DRIVER);
             while (conn == null)
             {
                 try{
@@ -32,54 +32,48 @@ public class App {
                 } catch(Exception e){}
             }
 
-            if(conn != null)
-            {
-                System.out.println("Polaczono!");
-                
-                try{
-                    System.out.println("Wybierz opcję: ");
-                    System.out.println("1. Dodaj chmure");
-                    System.out.println("2. Wyswietl baze");
-                    System.out.println("3. Wyjdź");
+            System.out.println("Polaczono!");
+			
+			try{
+			    System.out.println("Wybierz opcję: ");
+			    System.out.println("1. Dodaj chmure");
+			    System.out.println("2. Wyswietl baze");
+			    System.out.println("3. Wyjdź");
 
-                    int Menu = new Scanner(System.in).nextInt();
+			    int Menu = new Scanner(System.in).nextInt();
 
-                    switch(Menu){
-                        case 1:
-                            System.out.println("Podaj: ID");
-                            int id = new Scanner(System.in).nextInt();
-                            System.out.println("Podaj polska nazwe chmury");
-                            String NazwaPol = new Scanner(System.in).next();
-                            System.out.println("Podaj lacinska nazwe chmury");
-                            String NazwaLac = new Scanner(System.in).next();
-                            insertDB(conn, id, NazwaPol, NazwaLac);
-                            break;
-                        case 2:
-                            System.out.println("Chmury: ");
-                            showResult(conn);
-                        case 3:
-                            try{
-                                if(stmt!=null)
-                                stmt.close();
-                            }catch(SQLException se2){
-                            }
-                            try{
-                                if(conn!=null)
-                                conn.close();
-                            }catch(SQLException se){
-                                se.printStackTrace();
-                            }
-                            System.out.println("Goodbye!");
-                      break;
-                    }
-                }catch(SQLException ex)
-                {
-                    ex.printStackTrace();
-                }
-            } else
-            {
-                System.out.println("Nie mozna nawiazac polaczenia z baza!");
-            }
+			    switch(Menu){
+			        case 1:
+			            System.out.println("Podaj: ID");
+			            int id = new Scanner(System.in).nextInt();
+			            System.out.println("Podaj polska nazwe chmury");
+			            String NazwaPol = new Scanner(System.in).next();
+			            System.out.println("Podaj lacinska nazwe chmury");
+			            String NazwaLac = new Scanner(System.in).next();
+			            insertDB(conn, id, NazwaPol, NazwaLac);
+			            break;
+			        case 2:
+			            System.out.println("Chmury: ");
+			            showResult(conn);
+			        case 3:
+			            try{
+			                if(stmt!=null)
+			                    stmt.close();
+			            }catch(SQLException se2){
+			            }
+			            try{
+			                if(conn!=null)
+			                 conn.close();
+			            }catch(SQLException se){
+			                se.printStackTrace();
+			            }
+			            System.out.println("Goodbye!");
+			      break;
+			    }
+			}catch(SQLException ex)
+			{
+			    ex.printStackTrace();
+			}
         }finally{
             try{
                if(stmt!=null)
@@ -91,9 +85,9 @@ public class App {
                   conn.close();
             }catch(SQLException se){
                se.printStackTrace();
-            }//end finally try
-         }//end try
-         System.out.println("Goodbye!");
+            }
+         }
+         System.out.println("Dowidzenia!");
         }
 
     public static void createDB(Connection conn) throws SQLException
