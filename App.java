@@ -10,7 +10,7 @@ public class App {
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";
         String DB_URL = "jdbc:mysql://10.0.10.3:3306/chmura?serverTimezone=UTC";
         String DB_USER = "ADz";
-        String DB_PASS = "chmura";
+        String DB_PASS = "Chmura";
 
         Statement stmt = null;
         Connection conn = null;
