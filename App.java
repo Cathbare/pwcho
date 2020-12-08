@@ -63,6 +63,7 @@ public class App {
                         case 2:
                             System.out.println("Chmury: ");
                             showResult(conn);
+                            break;
                         case 3:
                             try{
                                 if(stmt!=null)
@@ -76,7 +77,7 @@ public class App {
                                 se.printStackTrace();
                             }
                             System.out.println("Goodbye!");
-                    break;
+                            break;
                         }
                     }
                 }else{
